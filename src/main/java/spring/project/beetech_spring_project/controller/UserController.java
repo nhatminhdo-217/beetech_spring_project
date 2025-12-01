@@ -7,24 +7,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import spring.project.beetech_spring_project.entity.User;
+import spring.project.beetech_spring_project.service.UserService;
 
 import java.time.LocalDate;
 
 @RestController
 public class UserController {
 
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @PostMapping("/user")
     public ResponseEntity<?> myPostMapping(
             @RequestBody @Valid User user
     ) {
 
-        if (LocalDate.now().getYear() - user.getDob().getYear() < 16) {
-            return ResponseEntity.badRequest().body("User must be greater than 16 years old to register");
-        }
-
-        if (user.getGender() != 1 && user.getGender() != 2) {
-            return ResponseEntity.badRequest().body("Gender must be 1 or 2");
-        }
+        userService.registerUser(user);
 
         return ResponseEntity.ok().body(user);
     }
