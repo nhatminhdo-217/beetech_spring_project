@@ -14,22 +14,22 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    @NotEmpty(message = "Please enter full name")
+    @NotEmpty
     private String fullName;
 
-    @NotEmpty(message = "Please enter email")
-    @Email(regexp = "^\\S+@\\S+\\.\\S+$", message = "Your email do not match the email format. Eg: abc@example.com")
+    @NotEmpty
+    @Email(regexp = "^\\S+@\\S+\\.\\S+$")
     private String email;
 
-    @NotEmpty(message = "Please enter password")
-    @Size(min = 8, message = "Password must have at least 8 character")
+    @NotEmpty
+    @Size(min = 8, max = 32)
     private String password;
 
-    @NotNull(message = "Please enter date of birth")
+    @NotNull
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Past(message = "Date of birth must be in the past")
+    @Past
     private LocalDate dob;
 
-    @NotNull(message = "Please enter gender(1-male, 2-female)")
+    @NotNull(message = "{validation.required.gender}")
     private int gender;
 }
