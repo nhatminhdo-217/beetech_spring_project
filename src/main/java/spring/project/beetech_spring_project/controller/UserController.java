@@ -15,8 +15,7 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<?> myPostMapping(
-            @RequestBody @Valid User user,
-            BindingResult bindingResult
+            @RequestBody @Valid User user
     ) {
 
         if (LocalDate.now().getYear() - user.getDob().getYear() < 16) {
@@ -25,10 +24,6 @@ public class UserController {
 
         if (user.getGender() != 1 && user.getGender() != 2) {
             return ResponseEntity.badRequest().body("Gender must be 1 or 2");
-        }
-
-        if (bindingResult.hasErrors()) {
-            return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
 
         return ResponseEntity.ok().body(user);

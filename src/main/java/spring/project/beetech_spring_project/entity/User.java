@@ -27,7 +27,7 @@ public class User {
 
     @NotNull(message = "Please enter date of birth")
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Past(message = "Date ov birth must be in past")
+    @Past(message = "Date of birth must be in the past")
     private LocalDate dob;
 
     @NotNull(message = "Please enter gender(1-male, 2-female)")
