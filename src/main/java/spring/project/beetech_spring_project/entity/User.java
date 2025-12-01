@@ -27,9 +27,8 @@ public class User {
 
     @NotNull
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @Past
-    private LocalDate dob;
+    private String dob;
 
-    @NotNull(message = "{validation.required.gender}")
-    private int gender;
+    @NotNull
+    private String gender;
 }
