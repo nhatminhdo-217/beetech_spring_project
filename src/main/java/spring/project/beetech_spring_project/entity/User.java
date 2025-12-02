@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import spring.project.beetech_spring_project.annotation.StrongPassword;
 import spring.project.beetech_spring_project.annotation.ValidateDOB;
 import spring.project.beetech_spring_project.annotation.ValidateGender;
 
@@ -21,7 +22,7 @@ public class User {
     private String email;
 
     @NotEmpty
-    @Size(min = 8, max = 32)
+    @StrongPassword
     private String password;
 
     @NotNull
