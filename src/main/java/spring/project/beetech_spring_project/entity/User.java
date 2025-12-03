@@ -1,10 +1,7 @@
 package spring.project.beetech_spring_project.entity;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import spring.project.beetech_spring_project.annotation.StrongPassword;
 import spring.project.beetech_spring_project.annotation.ValidateDOB;
 import spring.project.beetech_spring_project.annotation.ValidateGender;
@@ -13,6 +10,7 @@ import spring.project.beetech_spring_project.annotation.ValidateGender;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class User {
     @NotEmpty
     private String fullName;
