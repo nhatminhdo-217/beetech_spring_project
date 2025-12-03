@@ -1,13 +1,13 @@
 package spring.project.beetech_spring_project.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
+import spring.project.beetech_spring_project.annotation.StrongPassword;
+import spring.project.beetech_spring_project.annotation.ValidateDOB;
+import spring.project.beetech_spring_project.annotation.ValidateGender;
 
 @Getter
 @Setter
@@ -22,13 +22,14 @@ public class User {
     private String email;
 
     @NotEmpty
-    @Size(min = 8, max = 32)
+    @StrongPassword
     private String password;
 
     @NotNull
-    @JsonFormat(pattern = "dd/MM/yyyy")
+    @ValidateDOB
     private String dob;
 
     @NotNull
+    @ValidateGender
     private String gender;
 }
