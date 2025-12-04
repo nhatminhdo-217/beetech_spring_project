@@ -1,6 +1,5 @@
 package spring.project.beetech_spring_project.entity.enums;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 
 @Getter
@@ -15,22 +14,13 @@ public enum Genders {
         this.value = value;
     }
 
-    @JsonCreator
-    public static Genders fromJson(String json) {
-        try {
-            int value = Integer.parseInt(json);
-
-            return fromValue(value);
-        }catch (NumberFormatException e){
-            throw new NumberFormatException();
-        }
-    }
-
+    // Thêm hàm này
     public static Genders fromValue(int value) {
-        for (Genders g : values()) {
-            if (g.value == value) return g;
+        for (Genders gender : Genders.values()) {
+            if (gender.getValue() == value) {
+                return gender;
+            }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Gender Value: " + value);
     }
-
 }

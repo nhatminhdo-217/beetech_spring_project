@@ -34,21 +34,21 @@ public class DobValidator implements ConstraintValidator<ValidateDOB, String> {
             localDate = LocalDate.parse(s, formatter);
         }catch (DateTimeParseException e) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{validation.user.date.format}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{validation.userDTO.date.format}").addConstraintViolation();
             return false;
         }
 
         //Check if the input date is the past
         if (localDate.isAfter(LocalDate.now())) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{validation.user.date.past}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{validation.userDTO.date.past}").addConstraintViolation();
             return false;
         }
 
         //Check if the input date year is greater than 16
         if (Period.between(localDate, LocalDate.now()).getYears() < minAge) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{validation.user.date.adult}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{validation.userDTO.date.adult}").addConstraintViolation();
             return false;
         }
 

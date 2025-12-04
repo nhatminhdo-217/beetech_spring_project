@@ -37,7 +37,7 @@ public class TypeValidator implements ConstraintValidator<ValidateType, String> 
             input =  Integer.parseInt(gen);
         }catch (NumberFormatException e){
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{exception.user.gender.parse}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{exception.userDTO.gender.parse}").addConstraintViolation();
             return false;
         }
 
@@ -48,7 +48,7 @@ public class TypeValidator implements ConstraintValidator<ValidateType, String> 
                     .collect(Collectors.joining(", "));
 
             String msg = messageSource.getMessage(
-                    "exception.user.input.invalid",
+                    "exception.userDTO.input.invalid",
                     new Object[] {allowed},
                     LocaleContextHolder.getLocale());
 

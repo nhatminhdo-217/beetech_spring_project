@@ -27,13 +27,13 @@ public class PasswordValidator implements ConstraintValidator<StrongPassword, St
         //Check if the input password is > 8 and < 32 char
         if (str.length() < min || str.length() > max) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{validation.user.password.size}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{validation.userDTO.password.size}").addConstraintViolation();
             return false;
         }
 
         if (!str.matches(pattern)) {
             context.disableDefaultConstraintViolation();
-            context.buildConstraintViolationWithTemplate("{validation.user.password.match}").addConstraintViolation();
+            context.buildConstraintViolationWithTemplate("{validation.userDTO.password.match}").addConstraintViolation();
             return false;
         }
 

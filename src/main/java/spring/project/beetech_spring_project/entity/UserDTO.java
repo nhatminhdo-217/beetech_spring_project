@@ -11,6 +11,7 @@ import spring.project.beetech_spring_project.annotation.ValidateType;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 public class UserDTO {
     @NotEmpty
     private String fullName;
