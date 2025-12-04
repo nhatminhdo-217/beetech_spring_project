@@ -2,9 +2,11 @@ package spring.project.beetech_spring_project.entity;
 
 import jakarta.validation.constraints.*;
 import lombok.*;
+import spring.project.beetech_spring_project.annotation.EnumValidate;
 import spring.project.beetech_spring_project.annotation.StrongPassword;
 import spring.project.beetech_spring_project.annotation.ValidateDOB;
 import spring.project.beetech_spring_project.annotation.ValidateType;
+import spring.project.beetech_spring_project.entity.enums.Genders;
 
 @Getter
 @Setter
@@ -30,5 +32,6 @@ public class UserDTO {
 
     @NotNull
     @ValidateType(values = {1, 2})
+    @EnumValidate(enumType = Genders.class)
     private String gender;
 }

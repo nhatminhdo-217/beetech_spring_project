@@ -14,7 +14,6 @@ public enum Genders {
         this.value = value;
     }
 
-    // Thêm hàm này
     public static Genders fromValue(int value) {
         for (Genders gender : Genders.values()) {
             if (gender.getValue() == value) {
