@@ -2,14 +2,11 @@ package spring.project.beetech_spring_project.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import spring.project.beetech_spring_project.entity.User;
+import spring.project.beetech_spring_project.entity.UserDTO;
 import spring.project.beetech_spring_project.service.UserService;
-
-import java.time.LocalDate;
 
 @RestController
 public class UserController {
@@ -22,11 +19,11 @@ public class UserController {
 
     @PostMapping("/user")
     public ResponseEntity<?> myPostMapping(
-            @RequestBody @Valid User user
+            @RequestBody @Valid UserDTO userDTO
     ) {
 
-        userService.registerUser(user);
+        userService.registerUser(userDTO);
 
-        return ResponseEntity.ok().body(user);
+        return ResponseEntity.ok().body(userDTO);
     }
 }
